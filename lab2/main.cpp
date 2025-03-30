@@ -11,10 +11,10 @@ bool Solution(const std::vector<double>& x, const std::vector<double>& prev_x, d
 
 int main() 
 {
-    const double epsilon = 0.1;
+    const double epsilon = 0.01;
     std::vector<double> x = {0, 0, 0}; 
     std::vector<double> prev_x(3);
-    int iterations = 0, max_iterations = 100;
+    int iterations = 0;
 
     std::cout << "Розв'язок методом простої ітерації:" << std::endl;
     
@@ -29,7 +29,7 @@ int main()
         iterations++;
         
         std::cout << "Ітерація " << iterations << ": x1 = " << x[0] << ", x2 = " << x[1] << ", x3 = " << x[2] << std::endl;
-    } while (!Solution(x, prev_x, epsilon) && iterations < max_iterations);
+    } while (!Solution(x, prev_x, epsilon));
 
     std::cout << "Знайдене рішення: x1 = " << x[0] << ", x2 = " << x[1] << ", x3 = " << x[2] << std::endl;
     return 0;

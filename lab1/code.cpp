@@ -8,7 +8,13 @@ double f(double x)
     return x * x - 2 * x - 4;
 }
 
-double secantMethod(double x0, double x1, double epsilon, int &iterations) {
+double df(double x)
+{
+    return 2 * x - 2;
+}
+
+double secantMethod(double x0, double x1, double epsilon, int &iterations) 
+{
     double x2;
     iterations = 0;
 
@@ -37,6 +43,16 @@ int main()
     {
         std::cout << "f(" << x << ") = " << f(x) << std::endl;
     }
+    
+    std::cout << "Проміжок зміни знаку f(x): [-1.6; -0.8]." << std::endl;
+    std::cout << "Уточнення коренів f'(x):" << std::endl;
+
+    for (double x = -1.6; x <= -0.6; x+=0.2)
+    {
+        std::cout << "f'(" << x << ") = " << df(x) << std::endl;
+    }
+      
+    
 
     std::cout << "\nМетод січних для знаходження кореня на проміжку [-1.6; -1.52]:\n";
 
