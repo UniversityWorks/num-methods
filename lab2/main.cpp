@@ -2,12 +2,11 @@
 #include <vector>
 #include <cmath>
 
-bool isConverged(const std::vector<double>& x, const std::vector<double>& prev_x, double epsilon)
+bool isConverged(std::vector<double>& x, std::vector<double>& prev_x, double epsilon)
 {
 
-    for (size_t i = 0; i < x.size(); ++i)
-        if (fabs(x[i] - prev_x[i]) >= epsilon)
-            return false;
+    for (size_t i = 0; i < x.size(); ++i) if (fabs(x[i] - prev_x[i]) >= epsilon) return false;
+   
     return true;
 
 }
@@ -42,8 +41,7 @@ int main() {
     } while (!isConverged(x, prev_x, epsilon));
 
     std::cout << "\nЗнайдене рішення:\n";
-    for (int i = 0; i < x.size(); ++i)
-        std::cout << "x" << i + 1 << " = " << x[i] << "\n";
+    for (int i = 0; i < x.size(); ++i) std::cout << "x" << i + 1 << " = " << x[i] << "\n";
 
     return 0;
 }
